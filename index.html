@@ -1,10 +1,621 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>This is the title of the webpage!</title>
-  </head>
-  <body>
-    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
-  </body>
+<head>
+<title>AWS_DevOps_Syllabus.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="table-of-contents">Table of contents</h1>
+<ul>
+<li><a href="#table-of-contents">Table of contents</a></li>
+<li><a href="#aws">AWS</a>
+<ul>
+<li><a href="#account-creation">Account Creation</a></li>
+<li><a href="#ec2">EC2</a></li>
+<li><a href="#s3">S3</a></li>
+<li><a href="#git">Git</a></li>
+<li><a href="#iam">IAM</a></li>
+<li><a href="#vpc">VPC</a></li>
+<li><a href="#cloudwatch-and-sns">CloudWatch and SNS</a></li>
+<li><a href="#cloudtrail">CloudTrail</a></li>
+<li><a href="#auto-scaling-and-dns">Auto scaling and DNS</a></li>
+<li><a href="#rds">RDS</a></li>
+<li><a href="#glue-and-athena">Glue and Athena</a></li>
+<li><a href="#aws-systems-manager">AWS Systems Manager</a></li>
+<li><a href="#lambda-and-api-gateway">Lambda and API Gateway</a></li>
+<li><a href="#day-to-day-activities">Day to day activities</a></li>
+<li><a href="#iac-with-cloudformation">IAC with CloudFormation</a></li>
+</ul>
+</li>
+<li><a href="#linux">Linux</a></li>
+<li><a href="#python">Python</a></li>
+<li><a href="#devops">DevOps</a>
+<ul>
+<li><a href="#ansible">Ansible</a></li>
+<li><a href="#codecommit">CodeCommit</a></li>
+<li><a href="#codebuild">CodeBuild</a></li>
+<li><a href="#codedeploy">CodeDeploy</a></li>
+<li><a href="#codepipeline">CodePipeline</a></li>
+<li><a href="#docker">Docker</a></li>
+<li><a href="#kubernetes">Kubernetes</a></li>
+<li><a href="#jenkins">Jenkins</a></li>
+<li><a href="#aws-sagemaker">AWS Sagemaker</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="aws">AWS</h1>
+<h3 id="account-creation">Account Creation</h3>
+<ul>
+<li>Basic overview of AWS console, regions and the billing dashoard</li>
+<li>Walkthrough the services pane</li>
+<li>AWS support packages and best practices</li>
+</ul>
+<h3 id="ec2">EC2</h3>
+<ul>
+<li>Introuduction to EC2</li>
+<li>Provisioning and connection to an EC2 instance</li>
+<li>EC2 Tenancy</li>
+<li>Creating Snapshot and AMIs for backup</li>
+<li>Installing and accessing apache web server on EC2</li>
+<li>Understanding Elastic Load Balancer and their types</li>
+<li>Configuring Application Load Balancer for high availability</li>
+<li>Understanding ssh connection scenarios</li>
+</ul>
+<h3 id="s3">S3</h3>
+<ul>
+<li>Introduction to storage on cloud</li>
+<li>S3 storage tiers</li>
+<li>Using S3 capabilities like versioning, Cross-Region Replication, Static website hosting,transfer accelaration and S3 Life Cycle Policy</li>
+<li>Working with CORS and S3 Bucket Policy</li>
+</ul>
+<h3 id="git">Git</h3>
+<ul>
+<li>Types of Version Control Systems</li>
+<li>Git Componenets and Repository</li>
+<li>Working with Branches in Git</li>
+<li>Branching and Merging Strategies in Git, Resolving Merge Conflicts</li>
+<li>Github Pull Request</li>
+<li>Working with Github</li>
+</ul>
+<h3 id="iam">IAM</h3>
+<ul>
+<li>Creating users, groups and roles in IAM</li>
+<li>Creating custom policies for granular permissions</li>
+<li>Creating service role</li>
+<li>Cross account access using AWS STS</li>
+<li>Using AWS-CLI to access AWS Resources</li>
+</ul>
+<h3 id="vpc">VPC</h3>
+<ul>
+<li>Basic networkong concepts</li>
+<li>Understanding the default VPC</li>
+<li>Understanding the core components of VPC like Subnets, Route Tables, Internet Gateway, NAT Gateway, NACL, Security Groups and VPC Flow Logs</li>
+<li>Creating own Custom VPC</li>
+<li>Creating VPC endpoint for S3</li>
+<li>VPC Peering</li>
+</ul>
+<h3 id="cloudwatch-and-sns">CloudWatch and SNS</h3>
+<ul>
+<li>Creating cloudwatch Dashboards</li>
+<li>Creating and Monitoring Custom CloudWatch Metrics</li>
+<li>Configuring cloudwatch rules for Events and Alarms</li>
+<li>Sample queries using cloudwatch insights</li>
+<li>Creating custom Cloudwatch Log Groups using CloudWatch Agent</li>
+<li>Introduction to SNS</li>
+<li>Configuring SNS Topic and Subscribers</li>
+</ul>
+<h3 id="cloudtrail">CloudTrail</h3>
+<ul>
+<li>Understanding AWS Account Auditing using Cloudtrail</li>
+<li>Searching Event history</li>
+<li>Creating a trail</li>
+<li>Filtering aws-cli output with JMESPath</li>
+</ul>
+<h3 id="auto-scaling-and-dns">Auto scaling and DNS</h3>
+<ul>
+<li>Create launch configuration</li>
+<li>Create ASG Scaling Policies</li>
+<li>Testing of Auto Scaling using CloudWatch Metrics</li>
+<li>Route 53 – DNS Working AWS</li>
+<li>Route 53 terminologies, Routing policy, Pricing</li>
+</ul>
+<h3 id="rds">RDS</h3>
+<ul>
+<li>Mysql Installation on EC2</li>
+<li>Introduction to managed services</li>
+<li>Configuring and creating a private RDS instance</li>
+<li>RDS Connection from EC2 instance</li>
+<li>Create an restore using a manual snapshot</li>
+<li>Creating a Read Replica</li>
+</ul>
+<h3 id="glue-and-athena">Glue and Athena</h3>
+<ul>
+<li>Introduction to serverless querying engine</li>
+<li>Creating a table in athena to query S3 data</li>
+<li>Using glue crawler to scan the schema</li>
+<li>Creating partitions in athena table</li>
+<li>Querying Cloutrail Logs using Athena</li>
+</ul>
+<h3 id="aws-systems-manager">AWS Systems Manager</h3>
+<ul>
+<li>Creating Managed instances</li>
+<li>Using Session manager</li>
+<li>Use of SSM Patch Manager and Patch baseline</li>
+<li>Using run command using SSM</li>
+</ul>
+<h3 id="lambda-and-api-gateway">Lambda and API Gateway</h3>
+<ul>
+<li>Understanding Serverless Computing with AWS Lambda</li>
+<li>Working of AWS Lambda Environment Variables, SSM Parameter Store</li>
+<li>Custom Email Notification using AWS Lambda and SNS</li>
+<li>Overview of API Gateway</li>
+<li>Integrating API Gateway with Lambda</li>
+</ul>
+<h3 id="day-to-day-activities">Day to day activities</h3>
+<ul>
+<li>Ticket management</li>
+<li>Alert monitoring</li>
+<li>Frequent requests</li>
+<li>Administration best practices</li>
+</ul>
+<h3 id="iac-with-cloudformation">IAC with CloudFormation</h3>
+<ul>
+<li>YAML Basics</li>
+<li>Cloudformation Components : Parameters, Resources, Mappings, Intrinsic Functions etc</li>
+<li>Creating AWS Resources with CloudFormation Stacks using YAML Templates</li>
+<li>CloudFormation Update and Drift Detection Scenarios</li>
+</ul>
+<h1 id="linux">Linux</h1>
+<ul>
+<li>Introduction to Linux</li>
+<li>Linux Distributions</li>
+<li>Users and File Management
+<ul>
+<li>Files, Processes, Text Processing</li>
+<li>Linux Service Files</li>
+<li>Using rsync</li>
+</ul>
+</li>
+<li>Scheduling Tasks using cron</li>
+<li>Linux Package Managers</li>
+<li>Linux Networking and Firewall</li>
+<li>Installation, configuration of nginx Webserver and MySql Database</li>
+<li>TLS/SSL configuration for Webservers</li>
+<li>Linux Shell Scripting</li>
+<li>VM Creation using VirtualBox</li>
+<li>Linux storage attachment with EBS</li>
+</ul>
+<h1 id="python">Python</h1>
+<ul>
+<li>Strings, List, Tuples, Dictionaries, Conditional, Loops, Functions</li>
+<li>Reading configuraiton files using Python</li>
+<li>Installation of Python Libraries</li>
+<li>Working with boto3 library to interact with AWS Services using Python</li>
+</ul>
+<h1 id="devops">DevOps</h1>
+<h2 id="ansible">Ansible</h2>
+<ul>
+<li>Installation and configuration of Ansible</li>
+<li>Ansible Ad-Hoc Commands, Ansible Playbooks</li>
+<li>Ansible Tasks, Variables and Modules</li>
+<li>Ansible Facts, Roles, Templates</li>
+<li>Configuring Webservers and firewall with Ansible Playbooks</li>
+</ul>
+<h2 id="codecommit">CodeCommit</h2>
+<ul>
+<li>Working with AWS CodeCommit for Version Control</li>
+<li>IAM Policies to securing Repositories and Branches in AWS CodeCommit</li>
+</ul>
+<h2 id="codebuild">CodeBuild</h2>
+<ul>
+<li>CodeBuild Project Configurations</li>
+<li>CodeBuild Environment variables, Parameter Store and writing buildspec.yml files</li>
+<li>CodeBuild Artifacts on S3</li>
+<li>Continuos Integration Pipeline to create Docker Images and pushing it to AWS ECR</li>
+<li>Automation of Infrastructure creation using CodeBuild and CloudFormation</li>
+</ul>
+<h2 id="codedeploy">CodeDeploy</h2>
+<ul>
+<li>Creating CodeDeploy Application and Deployment Groups</li>
+<li>Deployment configuration using appspec.yml</li>
+<li>Application Deployment as per SDLC Environments</li>
+</ul>
+<h2 id="codepipeline">CodePipeline</h2>
+<ul>
+<li>Orchestration of AWS CodeCommit, CodeBuild, CodeDeploy with CodePipeline</li>
+<li>CodePipeline Stages, Actions and Manual Approvals</li>
+</ul>
+<h2 id="docker">Docker</h2>
+<ul>
+<li>Understanding Docker Container Lifecycle and Components of Docker Ecosystem</li>
+<li>Working with Docker images and containers</li>
+<li>Working with Dockerfile</li>
+<li>Working with Docker Registry like DockerHub and AWS ECR</li>
+<li>Docker Volumes and Networks</li>
+<li>Using Docker Compose to deploy multiple containers</li>
+<li>Deploying WebApps in Docker Containers</li>
+</ul>
+<h2 id="kubernetes">Kubernetes</h2>
+<ul>
+<li>Overview of Kubernetes Architecture and Components for Container Orchestration</li>
+<li>Setup Minikube Cluster on a Virtual Machine</li>
+<li>Understanding Kubernetes concepts like Pods, ReplicaSets, Deployments</li>
+<li>Creating deployments in Kubernetes using YAML files</li>
+<li>Understanding of Kubernetes setup using various options</li>
+</ul>
+<h2 id="jenkins">Jenkins</h2>
+<ul>
+<li>Installation and configuration of Jenkins and Jenkins Plugins</li>
+<li>Setup and Configure Jenkins Jobs with Maven Build for Tomcat Server Deployment</li>
+<li>Jenkins Artifacts, Environment Variables, Github Webhooks</li>
+<li>Jenkins Access Control and Authorization</li>
+<li>Jenkins declarative Pipelines as code</li>
+</ul>
+<h2 id="aws-sagemaker">AWS Sagemaker</h2>
+<ul>
+<li>Overview of Machine Learning with AWS SageMaker</li>
+<li>Creating a sample Jupyter Notebook Instance to create ML Model and execute a ML Job</li>
+</ul>
+
+</body>
 </html>
