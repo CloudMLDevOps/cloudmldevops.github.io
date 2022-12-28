@@ -19,44 +19,11 @@ Of course, it has to be Hello World, right?
 
 {::options parse_block_html="false" /}
 
-- <details><summary>Detail 1</summary>
-
-     - Detail 1.1
-     - Detail 1.2
-
-- <details><summary>Detail 2</summary>
-
-     - Detail 2.1
-     - Detail 2.2
-
-</details>
-
-</details>
+## Check
 
 {::options parse_block_html="true" /}
 
-<details>
-<summary><b>Preview title</b></summary>
-
-_Markdown is valid, but add empty lines to separate from the HTML tags._
-
-- Bullet
-- Points
-
-```json
-{
-    "codeblock": "demo"
-}
-```
-
-</details>
-
-{::options parse_block_html="false" /}
-
-## Check
-
-<details>
-<summary><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
+<details><summary><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
 
 - Red Hat Enterprise Linux
 - Fedora
@@ -83,6 +50,9 @@ Useful resources:
 - [What is your favorite Linux distro and why?](https://www.quora.com/What-is-your-favorite-Linux-distro-and-why)
 
 </details>
+<br/>
+
+{::options parse_block_html="false" /}
 
 <details>
 <summary><b>What are the differences between Unix, Linux, BSD, and GNU?</b></summary><br>
