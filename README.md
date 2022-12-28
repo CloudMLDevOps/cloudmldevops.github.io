@@ -18,6 +18,7 @@ This is Github Pages maintained for Cloud ML and DevOps Practices
      - Detail 2.2
 
 </details>
+
 </details>
 
 <details>
