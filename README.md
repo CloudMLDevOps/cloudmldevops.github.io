@@ -23,7 +23,7 @@ Of course, it has to be Hello World, right?
 
 {::options parse_block_html="true" /}
 
-<details><summary><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
+<details><summary markdown="span"><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
 
 - Red Hat Enterprise Linux
 - Fedora
