@@ -17,8 +17,6 @@ Of course, it has to be Hello World, right?
 </details>
 <br/>
 
-{::options parse_block_html="false" /}
-
 ## Check
 
 {::options parse_block_html="true" /}
@@ -71,8 +69,6 @@ Useful resources:
 - [The Great Debate: Is it Linux or GNU/Linux?](https://www.howtogeek.com/139287/the-great-debate-is-it-linux-or-gnulinux/)
 
 </details>
-
-{::options parse_block_html="false" /}
 
 <details>
 <summary markdown="span"><b>What is a CLI? Tell me about your favorite CLI tools, tips, and hacks.</b></summary><br>
@@ -757,3 +753,5 @@ Useful resources:
 - [5 Reasons to Rackmount Your PC](https://www.racksolutions.com/news/custom-projects/5-reasons-to-rackmount-pc/)
 
 </details>
+
+{::options parse_block_html="false" /}
