@@ -9,6 +9,22 @@ This is Github Pages maintained for Cloud ML and DevOps Practices
 ###### System Questions (37)
 
 <details>
+<summary><b>Preview title</b></summary>
+
+_Markdown is valid, but add empty lines to separate from the HTML tags._
+
+- Bullet
+- Points
+
+```json
+{
+    "codeblock": "demo"
+}
+```
+
+</details>
+
+<details>
 <summary><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
 
 - Red Hat Enterprise Linux
