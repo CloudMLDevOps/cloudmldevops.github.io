@@ -39,7 +39,7 @@ _Markdown is valid, but add empty lines to separate from the HTML tags._
 
 </details>
 
-{::options parse_block_html="true" /}
+{::options parse_block_html="false" /}
 
 ## Check
 
