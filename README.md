@@ -52,10 +52,8 @@ Useful resources:
 </details>
 <br/>
 
-{::options parse_block_html="false" /}
-
 <details>
-<summary><b>What are the differences between Unix, Linux, BSD, and GNU?</b></summary><br>
+<summary markdown="span"><b>What are the differences between Unix, Linux, BSD, and GNU?</b></summary><br>
 
 **GNU** isn't really an OS. It's more of a set of rules or philosophies that govern free software, that at the same time gave birth to a bunch of tools while trying to create an OS. So **GNU** tools are basically open versions of tools that already existed, but were reimplemented to conform to principals of open software. **GNU/Linux** is a mesh of those tools and the **Linux kernel** to form a complete OS, but there are other GNUs, e.g. **GNU/Hurd**.
 
@@ -74,8 +72,10 @@ Useful resources:
 
 </details>
 
+{::options parse_block_html="false" /}
+
 <details>
-<summary><b>What is a CLI? Tell me about your favorite CLI tools, tips, and hacks.</b></summary><br>
+<summary markdown="span"><b>What is a CLI? Tell me about your favorite CLI tools, tips, and hacks.</b></summary><br>
 
 **CLI** is an acronym for Command Line Interface or Command Language Interpreter. The command line is one of the most powerful ways to control your system/computer.
 
@@ -112,7 +112,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is your favorite shell and why?</b></summary><br>
+<summary markdown="span"><b>What is your favorite shell and why?</b></summary><br>
 
 **BASH** is my favorite. It’s really a preferential kind of thing, where I love the syntax and it just "clicks" for me. The input/output redirection syntax (`>>`, `<< 2>&1`, `2>`, `1>`, etc) is similar to C++ which makes it easier for me to recognize.
 
@@ -125,7 +125,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How do you get help on the command line? ***</b></summary><br>
+<summary markdown="span"><b>How do you get help on the command line? ***</b></summary><br>
 
 - `man` [commandname] can be used to see a description of a command (ex.: `man less`, `man cat`)
 
@@ -134,7 +134,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Your first 5 commands on a *nix server after login.</b></summary><br>
+<summary markdown="span"><b>Your first 5 commands on a *nix server after login.</b></summary><br>
 
 - `w` - a lot of great information in there with the server uptime
 - `top` - you can see all running processes, then order them by CPU, memory utilization and more
@@ -149,7 +149,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What do the fields in <code>ls -al</code> output mean?</b></summary><br>
+<summary markdown="span"><b>What do the fields in <code>ls -al</code> output mean?</b></summary><br>
 
 In the order of output:
 
@@ -187,7 +187,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How do you get a list of logged-in users?</b></summary><br>
+<summary markdown="span"><b>How do you get a list of logged-in users?</b></summary><br>
 
 For a summary of logged-in users, including each login of a username, the terminal users are attached to, the date/time they logged in, and possibly the computer from which they are making the connection, enter:
 
@@ -217,7 +217,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is the advantage of executing the running processes in the background? How can you do that?</b></summary><br>
+<summary markdown="span"><b>What is the advantage of executing the running processes in the background? How can you do that?</b></summary><br>
 
 The most significant advantage of executing the running process in the background is that you can do any other task simultaneously while other processes are running in the background. So, more processes can be completed in the background while you are working on different processes. It can be achieved by adding a special character `&` at the end of the command.
 
@@ -272,14 +272,14 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Before you can manage processes, you must be able to identify them. Which tools will you use? ***</b></summary><br>
+<summary markdown="span"><b>Before you can manage processes, you must be able to identify them. Which tools will you use? ***</b></summary><br>
 
 To be completed.
 
 </details>
 
 <details>
-<summary><b>Running the command as root user. It is a good or bad practices?</b></summary><br>
+<summary markdown="span"><b>Running the command as root user. It is a good or bad practices?</b></summary><br>
 
 Running (everything) as root is bad because:
 
@@ -300,7 +300,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How to check memory stats and CPU stats?</b></summary><br>
+<summary markdown="span"><b>How to check memory stats and CPU stats?</b></summary><br>
 
 You'd use `top/htop` for both. Using `free` and `vmstat` command we can display the physical and virtual memory statistics respectively. With the help of `sar` command we see the CPU utilization & other stats (but `sar` isn't even installed in most systems).
 
@@ -312,7 +312,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is load average?</b></summary><br>
+<summary markdown="span"><b>What is load average?</b></summary><br>
 
 Linux **load averages** are "system load averages" that show the running thread (task) demand on the system as an average number of running plus waiting threads. This measures demand, which can be greater than what the system is currently processing. Most tools show three averages, for 1, 5, and 15 minutes.
 
@@ -338,7 +338,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Where is my password stored on Linux/Unix?</b></summary><br>
+<summary markdown="span"><b>Where is my password stored on Linux/Unix?</b></summary><br>
 
 The passwords are not stored anywhere on the system at all. What is stored in `/etc/shadow` are so called hashes of the passwords.
 
@@ -359,7 +359,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How to recursively change permissions for all directories except files and for all files except directories?</b></summary><br>
+<summary markdown="span"><b>How to recursively change permissions for all directories except files and for all files except directories?</b></summary><br>
 
 To change all the directories e.g. to **755** (`drwxr-xr-x`):
 
@@ -380,7 +380,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Every command fails with <code>command not found</code>. How to trace the source of the error and resolve it?</b></summary><br>
+<summary markdown="span"><b>Every command fails with <code>command not found</code>. How to trace the source of the error and resolve it?</b></summary><br>
 
 It looks that at one point or another are overwriting the default `PATH` environment variable. The type of errors you have, indicates that `PATH` does not contain e.g. `/bin`, where the commands (including bash) reside.
 
@@ -413,7 +413,7 @@ Useful resource:
 </details>
 
 <details>
-<summary><b>You typing <code>CTRL + C</code> but your script still running. How do you stop it? ***</b></summary><br>
+<summary markdown="span"><b>You typing <code>CTRL + C</code> but your script still running. How do you stop it? ***</b></summary><br>
 
 To be completed.
 
@@ -425,7 +425,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is <code>grep</code> command? How to match multiple strings in the same line?</b></summary><br>
+<summary markdown="span"><b>What is <code>grep</code> command? How to match multiple strings in the same line?</b></summary><br>
 
 The `grep` utilities are a family of Unix tools, including `egrep` and `fgrep`.
 
@@ -450,7 +450,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Explain the file content commands along with the description.</b></summary><br>
+<summary markdown="span"><b>Explain the file content commands along with the description.</b></summary><br>
 
 - `head`: to check the starting of a file.
 - `tail`: to check the ending of the file. It is the reverse of head command.
@@ -465,7 +465,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>SIGHUP, SIGINT, SIGKILL, and SIGTERM POSIX signals. Explain.</b></summary><br>
+<summary markdown="span"><b>SIGHUP, SIGINT, SIGKILL, and SIGTERM POSIX signals. Explain.</b></summary><br>
 
 - **SIGHUP** - is sent to a process when its controlling terminal is closed. It was originally designed to notify the process of a serial line drop (a hangup). Many daemons will reload their configuration files and reopen their logfiles instead of exiting when receiving this signal.
 - **SIGINT** - is sent to a process by its controlling terminal when a user wishes to interrupt the process. This is typically initiated by pressing `Ctrl+C`, but on some systems, the "delete" character or "break" key can be used.
@@ -480,7 +480,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What does <code>kill</code> command do?</b></summary><br>
+<summary markdown="span"><b>What does <code>kill</code> command do?</b></summary><br>
 
 In Unix and Unix-like operating systems, `kill` is a command used to send a signal to a process. By default, the message sent is the termination signal, which requests that the process exit. But `kill` is something of a misnomer; the signal sent may have nothing to do with process killing.
 
@@ -491,7 +491,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is the difference between <code>rm</code> and <code>rm -rf</code>?</b></summary><br>
+<summary markdown="span"><b>What is the difference between <code>rm</code> and <code>rm -rf</code>?</b></summary><br>
 
 `rm` only deletes the named files (and not directories). With `-rf` as you say:
 
@@ -505,14 +505,14 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How do I <code>grep</code> recursively? Explain on several examples. ***</b></summary>
+<summary markdown="span"><b>How do I <code>grep</code> recursively? Explain on several examples. ***</b></summary>
 
 To be completed.
 
 </details>
 
 <details>
-<summary><b><code>archive.tgz</code> has ~30 GB. How do you list content of it and extract only one file?</b></summary><br>
+<summary markdown="span"><b><code>archive.tgz</code> has ~30 GB. How do you list content of it and extract only one file?</b></summary><br>
 
 ```bash
 # list of content
@@ -530,7 +530,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Execute combine multiple shell commands in one line.</b></summary><br>
+<summary markdown="span"><b>Execute combine multiple shell commands in one line.</b></summary><br>
 
 If you want to execute each command only if the previous one succeeded, then combine them using the `&&` operator:
 
@@ -565,7 +565,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What symbolic representation can you pass to <code>chmod</code> to give all users execute access to a file without affecting other permissions?</b></summary><br>
+<summary markdown="span"><b>What symbolic representation can you pass to <code>chmod</code> to give all users execute access to a file without affecting other permissions?</b></summary><br>
 
 ```bash
 chmod a+x /path/to/file
@@ -583,7 +583,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How can I sync two local directories?</b></summary><br>
+<summary markdown="span"><b>How can I sync two local directories?</b></summary><br>
 
 To sync the contents of **dir1** to **dir2** on the same system, type:
 
@@ -604,7 +604,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Many basic maintenance tasks require you to edit config files. Explain ways to undo the changes you make.</b></summary><br>
+<summary markdown="span"><b>Many basic maintenance tasks require you to edit config files. Explain ways to undo the changes you make.</b></summary><br>
 
 - manually backup of a file before editing (with brace expansion like this: `cp filename{,.orig}`)
 - manual copy of the directory structure where file is stored (e.g. `cp`, `rsync` or `tar`)
@@ -619,7 +619,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>You have to find all files larger than 20MB. How you do it?</b></summary><br>
+<summary markdown="span"><b>You have to find all files larger than 20MB. How you do it?</b></summary><br>
 
 ```bash
 find / -type f -size +20M
@@ -632,7 +632,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>Why do we use <code>sudo su -</code> and not just <code>sudo su</code>?</b></summary><br>
+<summary markdown="span"><b>Why do we use <code>sudo su -</code> and not just <code>sudo su</code>?</b></summary><br>
 
 `sudo` is in most modern Linux distributions where (but not always) the root user is disabled and has no password set. Therefore you cannot switch to the root user with `su` (you can try). You have to call `sudo` with root privileges: `sudo su`.
 
@@ -648,7 +648,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How to find files that have been modified on your system in the past 60 minutes?</b></summary><br>
+<summary markdown="span"><b>How to find files that have been modified on your system in the past 60 minutes?</b></summary><br>
 
 ```bash
 find / -mmin -60 -type f
@@ -661,7 +661,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What are the main reasons for keeping old log files?</b></summary><br>
+<summary markdown="span"><b>What are the main reasons for keeping old log files?</b></summary><br>
 
 They are essential to investigate issues on the system. **Log management** is absolutely critical for IT security.
 
@@ -692,7 +692,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is an incremental backup?</b></summary><br>
+<summary markdown="span"><b>What is an incremental backup?</b></summary><br>
 
 An incremental backup is a type of backup that only copies files that have changed since the previous backup.
 
@@ -703,7 +703,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is RAID? What is RAID0, RAID1, RAID5, RAID6, RAID10? </b></summary><br>
+<summary markdown="span"><b>What is RAID? What is RAID0, RAID1, RAID5, RAID6, RAID10? </b></summary><br>
 
 A **RAID** (Redundant Array of Inexpensive Disks) is a technology that is used to increase the performance and/or reliability of data storage.
 
@@ -720,7 +720,7 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>How is a user’s default group determined? How would you change it? </b></summary><br>
+<summary markdown="span"><b>How is a user’s default group determined? How would you change it? </b></summary><br>
 
 ```bash
 useradd -m -g initial_group username
@@ -737,14 +737,14 @@ Useful resources:
 </details>
 
 <details>
-<summary><b>What is your best command line text editor for daily working and scripting? ***</b></summary><br>
+<summary markdown="span"><b>What is your best command line text editor for daily working and scripting? ***</b></summary><br>
 
 To be completed.
 
 </details>
 
 <details>
-<summary><b>Why would you want to mount servers in a rack?</b></summary><br>
+<summary markdown="span"><b>Why would you want to mount servers in a rack?</b></summary><br>
 
 - Protecting Hardware
 - Proper Cooling
