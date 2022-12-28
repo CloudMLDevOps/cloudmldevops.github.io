@@ -21,6 +21,8 @@ This is Github Pages maintained for Cloud ML and DevOps Practices
 
 </details>
 
+{::options parse_block_html="true" /}
+
 <details>
 <summary><b>Preview title</b></summary>
 
@@ -36,6 +38,8 @@ _Markdown is valid, but add empty lines to separate from the HTML tags._
 ```
 
 </details>
+
+{::options parse_block_html="true" /}
 
 ## Check
 
