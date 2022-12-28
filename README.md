@@ -7,6 +7,18 @@ This is Github Pages maintained for Cloud ML and DevOps Practices
 
 ###### System Questions (37)
 
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">Let's see some code!</summary>
+```python
+print('Hello World!')
+```
+Of course, it has to be Hello World, right?
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
 - <details><summary>Detail 1</summary>
 
      - Detail 1.1
