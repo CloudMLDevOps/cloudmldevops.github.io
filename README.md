@@ -7,11 +7,8 @@ This is Github Pages maintained for Cloud ML and DevOps Practices
 
 ###### System Questions (37)
 
-<details>
+<details><summary><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
 
-<summary><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
-
-<br>
 - Red Hat Enterprise Linux
 - Fedora
 - CentOS
