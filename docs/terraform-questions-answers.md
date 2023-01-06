@@ -143,7 +143,6 @@ Run `terraform apply`. That will apply the changes described in your .tf files.
 
 A user should be careful with this command because there is no way to revert it. Sure, you can always run again "apply" but that can take time, generates completely new resources, etc.
 
-
 </details>
 
 ### <a name="Dependencies">Dependencies</a>
