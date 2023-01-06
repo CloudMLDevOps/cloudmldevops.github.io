@@ -7,7 +7,6 @@ This is Github Pages maintained for Cloud ML and DevOps Practices
 # Terraform QnA
 - To view all [Terraform Question Answers](docs/terraform-questions-answers.md)
 
-
 {::options parse_block_html="true" /}
 
 ## <a name="docker-tips">Docker Tips</a>
