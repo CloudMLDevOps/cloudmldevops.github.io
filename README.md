@@ -244,7 +244,9 @@ docker run --rm -it -v "$PWD/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro" -
 
 ## <a name="general-knowledge">General Knowledge</a>
 
-### :diamond_shape_with_a_dot_inside: <a name="junior-sysadmin">Junior Sysadmin</a>
+### <a name="junior-sysadmin">Junior Sysadmin</a>
+
+{::options parse_block_html="true" /}
 
 ###### System Questions (37)
 
@@ -255,10 +257,6 @@ print('Hello World!')
 Of course, it has to be Hello World, right?
 </details>
 <br/>
-
-## Check
-
-{::options parse_block_html="true" /}
 
 <details><summary markdown="span"><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
 
