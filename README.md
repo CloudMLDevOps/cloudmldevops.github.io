@@ -246,8 +246,6 @@ docker run --rm -it -v "$PWD/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro" -
 
 ### <a name="junior-sysadmin">Junior Sysadmin</a>
 
-{::options parse_block_html="true" /}
-
 ###### System Questions (37)
 
 <details><summary markdown="span">Let's see some code!</summary>
