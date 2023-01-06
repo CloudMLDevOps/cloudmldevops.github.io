@@ -2,7 +2,7 @@
 
 {::options parse_block_html="true" /}
 
-### Terraform 101
+### <a name="Terraform-101">Terraform 101</a>
 
 <details>
 <summary>What is Terraform?</summary><br><b>
@@ -68,6 +68,7 @@ To be clear, CM tools can be used to provision resources so in the end goal of h
 </b></details>
 
 ### Terraform Hands-On Basics
+### <a name="Terraform-Hands-On-Basics">Terraform Hands-On Basics</a>
 
 <details>
 <summary>Explain the following block of Terraform code
@@ -132,7 +133,7 @@ Run `terraform apply`. That will apply the changes described in your .tf files.
 A user should be careful with this command because there is no way to revert it. Sure, you can always run again "apply" but that can take time, generates completely new resources, etc.
 </b></details>
 
-### Dependencies
+### <a name="Dependencies">Dependencies</a>
 
 <details>
 <summary>Sometimes you need to reference some resources in the same or separate .tf file. Why and how it's done?</summary><br><b>
@@ -172,7 +173,7 @@ Yes, with `terraform graph`
 The output is in DOT - A graph description language.
 </b></details>
 
-### Providers
+### <a name="Providers">Providers</a>
 
 <details>
 <summary>Explain what is a "provider"</summary><br><b>
@@ -300,7 +301,8 @@ terraform {
 False. You can specify any provider from any URL, not only those from hashicorp.
 </b></details>
 
-### Variables
+### <a name="Variables">Variables</a>
+
 
 #### Input Variables
 
