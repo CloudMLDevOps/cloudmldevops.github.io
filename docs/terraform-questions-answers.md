@@ -73,7 +73,6 @@ To be clear, CM tools can be used to provision resources so in the end goal of h
 
 {::options parse_block_html="false" /}
 
-### Terraform Hands-On Basics
 ### <a name="Terraform-Hands-On-Basics">Terraform Hands-On Basics</a>
 
 <details>
