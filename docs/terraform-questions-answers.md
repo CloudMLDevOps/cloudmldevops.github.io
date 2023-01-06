@@ -1,6 +1,6 @@
-## Questions
-
 {::options parse_block_html="true" /}
+
+## Questions
 
 ### <a name="Terraform-101">Terraform 101</a>
 
