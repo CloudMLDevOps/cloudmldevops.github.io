@@ -74,7 +74,7 @@ To be clear, CM tools can be used to provision resources so in the end goal of h
 ### <a name="Terraform-Hands-On-Basics">Terraform Hands-On Basics</a>
 
 <details>
-<summary markdown="span">Explain the following block of Terraform code
+<summary markdown="span">Explain the following block of Terraform code</summary>
 
 ```
 resource "aws_instance" "some-instance" {
@@ -82,7 +82,6 @@ resource "aws_instance" "some-instance" {
   instance_type = "t2.micro
 }
 ```
-</summary>
 
 It's a resource of type "aws_instance" used to provision an instance. The name of the resource (NOT INSTANCE) is "some-instance".
 
@@ -92,7 +91,7 @@ The instance itself will be provisioned with type "t2.micro" and using an image 
 </details>
 
 <details>
-<summary markdown="span">What do you do next after writing the following in main.tf file?
+<summary markdown="span">What do you do next after writing the following in main.tf file?</summary>
 
 ```
 resource "aws_instance" "some-instance" {
@@ -100,7 +99,6 @@ resource "aws_instance" "some-instance" {
   instance_type = "t2.micro
 }
 ```
-</summary>
 
 Run `terraform init`. This will scan the code in the directory to figure out which providers are used (in this case AWS provider) and will download them.
 
@@ -203,7 +201,7 @@ In the [Terraform Registry](https://registry.terraform.io/browse/providers)
 </details>
 
 <details>
-<summary markdown="span">What are the names of the providers in this case?
+<summary markdown="span">What are the names of the providers in this case?</summary>
 
 ```
 terraform {
@@ -218,7 +216,6 @@ terraform {
     }
   }
 ```
-</summary>
 
 azurerm and aws
 </details>
@@ -237,7 +234,7 @@ provider "aws" {
 </details>
 
 <details>
-<summary markdown="span">True or False? Applying the following Terraform configuration will fail since no source or version specific for 'aws' provider
+<summary markdown="span">True or False? Applying the following Terraform configuration will fail since no source or version specific for 'aws' provider</summary>
 
 ```
 terraform {
@@ -246,7 +243,6 @@ terraform {
     }
   }
 ```
-</summary>
 
 False. It will look for "aws" provider in the public Terraform registry and will take the latest version.
 </details>
@@ -292,7 +288,7 @@ The Terraform Registry provides a centralized location for official and communit
 </details>
 
 <details>
-<summary markdown="span">Describe in high level what happens behind the scenes when you run terraform init on on the following Terraform configuration
+<summary markdown="span">Describe in high level what happens behind the scenes when you run terraform init on on the following Terraform configuration</summary>
 
 ```
 terraform {
@@ -304,7 +300,7 @@ terraform {
   }
 }
 ```
-</summary>
+
 
 1. Terraform checks if there is an aws provider in this address: `registry.terraform.io/hashicorp/aws`
 2. Installs latest version of aws provider (assuming the URL exists and valid)
