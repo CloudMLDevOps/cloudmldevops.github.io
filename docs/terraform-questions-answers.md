@@ -1,6 +1,6 @@
-{::options parse_block_html="true" /}
-
 ## Questions
+
+{::options parse_block_html="true" /}
 
 ### Terraform 101
 
@@ -17,7 +17,7 @@
 - Full automation: In the past, resource creation, modification and removal were handled manually or by using a set of tooling. With Terraform or other IaC technologies, you manage the full lifecycle in an automated fashion.<br>
 - Modular and Reusable: Code that you write for certain purposes can be used and assembled in different ways. You can write code to create resources on a public cloud and it can be shared with other teams who can also use it in their account on the same (or different) cloud><br>
 - Improved testing: Concepts like CI can be easily applied on IaC based projects and code snippets. This allow you to test and verify operations beforehand
-- 
+-
 </b></details>
 
 <details>
@@ -26,7 +26,7 @@
 - Declarative: Terraform uses the declarative approach (rather than the procedural one) in order to define end-status of the resources
 - No agents: as opposed to other technologies (e.g. Puppet) where you use a model of agent and server, with Terraform you use the different APIs (of clouds, services, etc.) to perform the operations
 - Community: Terraform has strong community who constantly publishes modules and fixes when needed. This ensures there is good modules maintenance and users can get support quite quickly at any point
-- 
+-
 </b></details>
 
 <details>
@@ -132,7 +132,7 @@ Run `terraform apply`. That will apply the changes described in your .tf files.
 A user should be careful with this command because there is no way to revert it. Sure, you can always run again "apply" but that can take time, generates completely new resources, etc.
 </b></details>
 
-### Dependencies 
+### Dependencies
 
 <details>
 <summary>Sometimes you need to reference some resources in the same or separate .tf file. Why and how it's done?</summary><br><b>
@@ -147,7 +147,7 @@ In your AWS instance it would like that:
 
 ```
 resource "aws_instance" "some-instance" {
-  
+
   ami           = "some-ami"
   instance_type = "t2.micro"
   vpc_security_group_ids = [aws_security_group.instance.id]
@@ -161,7 +161,7 @@ resource "aws_instance" "some-instance" {
 
 Yes, when there is a dependency between different Terraform resources, you want the resources to be created in the right order and this is exactly what Terraform does.
 
-To make it ever more clear, if you have a resource X that references the ID of resource Y, it doesn't makes sense to create first resource X because it won't have any ID to get from a resource that wasn't created yet. 
+To make it ever more clear, if you have a resource X that references the ID of resource Y, it doesn't makes sense to create first resource X because it won't have any ID to get from a resource that wasn't created yet.
 </b></details>
 
 <details>
@@ -183,7 +183,7 @@ The output is in DOT - A graph description language.
 <details>
 <summary>Where can you find publicly available providers?</summary><br><b>
 
-In the [Terraform Registry](https://registry.terraform.io/browse/providers) 
+In the [Terraform Registry](https://registry.terraform.io/browse/providers)
 </b></details>
 
 <details>
@@ -365,7 +365,7 @@ True
 - The file `terraform.tfvars`
 - Environment variable
 - Using `-var` or `-var-file`
-  
+
 According to variable precedence, which source will be used first?</summary><br><b>
 
 The order is:
@@ -584,7 +584,7 @@ data "aws_vpc" "default {
 }
 ```
 
-You can retrieve the ID attribute this way: `data.aws_vpc.default.id` 
+You can retrieve the ID attribute this way: `data.aws_vpc.default.id`
 </b></details>
 
 <details>
@@ -779,7 +779,7 @@ There is more than one answer to this question. It's very much depends on whethe
 - tfstate contains credentials in plain text. You don't want to put it in publicly shared location
 - tfstate shouldn't be modified concurrently so putting it in a shared location available for everyone with "write" permissions might lead to issues. (Terraform remote state doesn't has this problem).
 - tfstate is an important file. As such, it might be better to put it in a location that has regular backups and good security.
-  
+
 As such, tfstate shouldn't be stored in git repositories. secured storage such as secured buckets, is a better option.
 
 </b></details>
@@ -801,7 +801,7 @@ In general, storing state file on your computer isn't a problem. It starts to be
 
   - Don't edit it manually. tfstate was designed to be manipulated by terraform and not by users directly.
   - Store it in secured location (since it can include credentials and sensitive data in general)
-  - Backup it regularly so you can roll-back easily when needed 
+  - Backup it regularly so you can roll-back easily when needed
   - Store it in remote shared storage. This is especially needed when working in a team and the state can be updated by any of the team members
   - Enabled versioning if the storage where you store the state file, supports it. Versioning is great for backups and roll-backs in case of an issue.
 
@@ -848,7 +848,7 @@ Let's say we chose use Amazon s3 as a remote Terraform backend where we can stor
 4. Block public access
 5. Handle locking. One way is to add DB for it
 6. Add the point you'll want to run init and apply commands to avoid an issue where you at the same time create the resources for remote backend and also switch to a remote backend
-7. Once resources were created, add Terraform backend code 
+7. Once resources were created, add Terraform backend code
 
 ```
 terraform {
@@ -1085,7 +1085,7 @@ resource "aws_iam_user" "user" {
 
 ```
 resource “google_compute_instance” “instances” {
-  
+
   for_each = var.names_map
   name = each.value
 }
@@ -1097,7 +1097,7 @@ resource “google_compute_instance” “instances” {
 
 ```
 resource “google_compute_instance” “instances” {
-  
+
   for_each = var.names
   name = each.value
 }
@@ -1211,7 +1211,7 @@ output "name_and_age" {
 
 ```
 output "name_and_age" {
-  value = {for name, age in var.users : upper(name) => floor(age) 
+  value = {for name, age in var.users : upper(name) => floor(age)
 }
 ```
 
@@ -1649,7 +1649,7 @@ provider "aws" {
 ```
 </summary><br><b>
 
-It's not secure! you should never store credentials in plain text this way. 
+It's not secure! you should never store credentials in plain text this way.
 
 </b></details>
 
