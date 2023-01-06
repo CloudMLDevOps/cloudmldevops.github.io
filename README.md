@@ -254,7 +254,6 @@ print('Hello World!')
 ```
 Of course, it has to be Hello World, right?
 </details>
-<br/>
 
 <details><summary markdown="span"><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
 
@@ -283,7 +282,6 @@ Useful resources:
 - [What is your favorite Linux distro and why?](https://www.quora.com/What-is-your-favorite-Linux-distro-and-why)
 
 </details>
-<br/>
 
 <details>
 <summary markdown="span"><b>What are the differences between Unix, Linux, BSD, and GNU?</b></summary><br>
