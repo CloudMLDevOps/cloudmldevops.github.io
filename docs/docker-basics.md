@@ -8,8 +8,6 @@ Docker is a containerization platform which packages your application and all it
   <img src="assets/docker-architecture.png" alt="Docker Architecture" width="600px" />
 </p>
 
-
-
 ## Q. What is a Docker Container?
 
 Docker containers include the application and all of its dependencies. It shares the kernel with other containers, running as isolated processes in user space on the host operating system. Docker containers are not tied to any specific infrastructure: they run on any computer, on any infrastructure, and in any cloud. Docker containers are basically runtime instances of Docker images.

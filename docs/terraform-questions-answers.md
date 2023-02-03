@@ -372,13 +372,13 @@ True
 </details>
 
 <details>
-<summary markdown="span">The same variable is defined in the following places:
+<summary markdown="span">The same variable is defined in the following places:</summary>
 
 - The file `terraform.tfvars`
 - Environment variable
 - Using `-var` or `-var-file`
 
-According to variable precedence, which source will be used first?</summary>
+According to variable precedence, which source will be used first?
 
 The order is:
 
