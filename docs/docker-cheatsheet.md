@@ -77,6 +77,7 @@
     - [Security Videos](#security-videos)
     - [Security Roadmap](#security-roadmap)
   - [Tips](#tips)
+    - [Prune](#prune)
     - [df](#df)
     - [Heredoc Docker Container](#heredoc-docker-container)
     - [Last IDs](#last-ids)
@@ -738,7 +739,7 @@ Sources:
 * [15 Docker Tips in 5 minutes](http://sssslide.com/speakerdeck.com/bmorearty/15-docker-tips-in-5-minutes)
 * [CodeFresh Everyday Hacks Docker](https://codefresh.io/blog/everyday-hacks-docker/)
 
-<details><summary markdown="span"><b>Prune</b></summary>
+### Prune
 
 The new [Data Management Commands](https://github.com/docker/docker/pull/26108) have landed as of Docker 1.13:
 
@@ -747,8 +748,6 @@ The new [Data Management Commands](https://github.com/docker/docker/pull/26108) 
 * `docker network prune`
 * `docker container prune`
 * `docker image prune`
-
-</details>
 
 ### df
 
