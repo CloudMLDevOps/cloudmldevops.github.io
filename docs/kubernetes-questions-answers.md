@@ -12,8 +12,8 @@
 <details>
 <summary markdown="span">How is Kubernetes different from Docker Swarm?</summary>
 
-Docker Swarm is Docker’s native, open-source container orchestration platform that is used to cluster and schedule Docker containers. Swarm differs from Kubernetes in the following ways:
-- Docker Swarm is more convenient to set up but doesn’t have a robust cluster, while Kubernetes is more complicated to set up but the benefit of having the assurance of a robust cluster
+- **Docker Swarm** is Docker’s native, open-source container orchestration platform that is used to cluster and schedule Docker containers. Swarm differs from Kubernetes in the following ways:
+- **Docker Swarm** is more convenient to set up but doesn’t have a robust cluster, while Kubernetes is more complicated to set up but the benefit of having the assurance of a robust cluster
 - Docker Swarm can’t do auto-scaling (as can Kubernetes); however, Docker scaling is five times faster than Kubernetes
 - Docker Swarm doesn’t have a GUI; Kubernetes has a GUI in the form of a dashboard Docker Swarm does automatic load balancing of traffic between containers in a cluster, while Kubernetes requires manual intervention for load balancing such traffic
 - Docker requires third-party tools like ELK stack for logging and monitoring, while Kubernetes has integrated tools for the same
