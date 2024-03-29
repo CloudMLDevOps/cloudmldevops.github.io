@@ -7,6 +7,10 @@
 <details>
 <summary markdown="span">What are the features of Kubernetes?</summary>
 
+<p align="center">
+  <img src="assets/k8s-features.png" alt="K8s Features" width="800px" />
+</p>
+
 </details>
 
 <details>
@@ -35,7 +39,7 @@ can deploy rolling updates as well as automatic rollbacks
 <summary markdown="span">What is the difference between deploying applications on hosts & containers?</summary>
 
 <p align="center">
-  <img src="assets/hosts-containers.png" alt="Docker Architecture" width="800px" />
+  <img src="assets/hosts-containers.png" alt="Hosts Containers" width="800px" />
 </p>
 
 - Refer to the above diagram. The left side architecture represents deploying applications on hosts. So, this kind of architecture will have an operating system and then the operating system will have a kernel which will have various libraries installed on the operating system needed for the application. So, in this kind of framework you can have n number of applications and all the applications will share the libraries present in that operating system whereas while deploying applications in containers the architecture is a little different.
@@ -65,7 +69,7 @@ As a typical application would have a cluster of containers running across multi
 The fundamental behind Kubernetes is that we can enforce the desired state management, by which I mean that we can feed the cluster services of a specific configuration, and it will be up to the cluster services to go out and run that configuration in the infrastructure.
 
 <p align="center">
-  <img src="assets/k8s-cluster.png" alt="Docker Architecture" width="800px" />
+  <img src="assets/k8s-cluster.png" alt="K8s Cluster" width="800px" />
 </p>
 
 So, as you can see in the above diagram, the deployment file will have all the configurations required to be fed into the cluster services. Now, the deployment file will be fed to the API and then it will be up to the cluster services to figure out how to schedule these pods in the environment and make sure that the right number of pods are running.
@@ -103,7 +107,7 @@ Etcd is written in Go programming language and is a distributed key-value store 
 The following are the different types of services used:
 
 <p align="center">
-  <img src="assets/k8s-services.png" alt="Docker Architecture" width="800px" />
+  <img src="assets/k8s-services.png" alt="K8s Services" width="800px" />
 </p>
 
 </details>
@@ -112,10 +116,6 @@ The following are the different types of services used:
 <summary markdown="span">What is the LoadBalancer in Kubernetes?</summary>
 
 A load balancer is one of the most common and standard ways of exposing service. There are two types of load balancer used based on the working environment i.e. either the Internal Load Balancer or the External Load Balancer. The Internal Load Balancer automatically balances load and allocates the pods with the required configuration whereas the External Load Balancer directs the traffic from the external load to the backend pods.
-
-<p align="center">
-  <img src="assets/k8s-services.png" alt="Docker Architecture" width="800px" />
-</p>
 
 </details>
 
