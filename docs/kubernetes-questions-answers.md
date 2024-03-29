@@ -136,3 +136,24 @@ kube-scheduler, etcd. Whereas the worker node has kubelet and kube-proxy running
 </p>
 
 </details>
+
+### <a name="Technical Questions">Technical QUESTIONS</a>
+
+<details>
+<summary markdown="span">What is the difference between config map and secret? (Differentiate the answers as with examples)</summary>
+
+Config maps ideally stores application configuration in a plain text format whereas Secrets store sensitive data like password in an encrypted format. Both config maps and secrets can be used as volume and mounted inside a pod through a pod definition file.
+
+- Configmap
+```bash
+kubectl create configmap myconfigmap --from-literal=env=dev
+```
+
+- Secret
+```bash
+echo -n ‘admin’ > ./username.txt
+echo -n ‘abcd1234’ ./password.txt
+kubectl create secret generic mysecret --from-file=./username.txt --from-file=./password.txt
+```
+
+</details>
