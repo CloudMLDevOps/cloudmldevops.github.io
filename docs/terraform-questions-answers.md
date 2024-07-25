@@ -74,7 +74,7 @@ To be clear, CM tools can be used to provision resources so in the end goal of h
 ### <a name="Terraform-Hands-On-Basics">Terraform Hands-On Basics</a>
 
 <details>
-<summary markdown="span">Explain the following block of Terraform code</summary>
+<summary markdown="span">**Explain the following block of Terraform code**</summary>
 
 ```
 resource "aws_instance" "some-instance" {
