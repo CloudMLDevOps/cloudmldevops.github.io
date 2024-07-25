@@ -78,6 +78,17 @@ So, the API which sits in front of services, the worker nodes & the Kubelet proc
 </details>
 
 <details>
+<summary markdown="span">What is a Pod in Kubernetes?</summary>
+
+A cluster of one or more Linux containers makes up a Kubernetes pod, the smallest unit of a Kubernetes application. From the more common scenario of a single container to an advanced use case with numerous tightly coupled containers within a pod, this basic structure allows for an array of designs.
+
+```bash
+kubectl get pods -n <namespace-name>
+```
+
+</details>
+
+<details>
 <summary markdown="span">What is Kubectl?</summary>
 
 Kubectl is the platform using which you can pass commands to the cluster.
@@ -113,6 +124,14 @@ The following are the different types of services used:
 </details>
 
 <details>
+<summary markdown="span">What is the role of a pod?</summary>
+
+A: A pod in Kubernetes is responsible for holding individual containers. Each pod can hold various containers depending on the configurations and requirements. The containers held within a single pod share the same resources and the same local network, which makes it easier for them to communicate.
+
+</details>
+
+
+<details>
 <summary markdown="span">What is the LoadBalancer in Kubernetes?</summary>
 
 A load balancer is one of the most common and standard ways of exposing service. There are two types of load balancer used based on the working environment i.e. either the Internal Load Balancer or the External Load Balancer. The Internal Load Balancer automatically balances load and allocates the pods with the required configuration whereas the External Load Balancer directs the traffic from the external load to the backend pods.
@@ -137,6 +156,25 @@ kube-scheduler, etcd. Whereas the worker node has kubelet and kube-proxy running
 
 </details>
 
+<details>
+<summary markdown="span">What are the various K8 related services running on nodes and role of each service?</summary>
+
+Mainly K8 cluster consists of two type of nodes: master and executor
+
+- master services:
+  - kube-apiserver: Master API service which acts like a door to K8 cluster. 
+  - kube-scheduler: Schedule PODs according to available resources on executor nodes. 
+  - kube-controller-manager: controller is a control loop that watches the shared state of the cluster through the 
+    apiserver and makes changes attempting to move the current state towards the desired state
+
+- executor node: (These also runs on master node)
+  - kube-proxy: The Kubernetes network proxy runs on each node. This reflects services as defined in the Kubernetes API on 
+    each node and can do simple TCP, UDP, and SCTP stream forwarding or round robin TCP, UDP, and SCTP forwarding across a set of backends.
+  - kubelet: kubelet takes a set of PodSpecs that are provided through various mechanisms (primarily through the 
+    apiserver) and ensures that the containers described in those PodSpecs are running and healthy
+
+</details>
+
 ### <a name="Technical Questions">Technical QUESTIONS</a>
 
 <details>
@@ -155,5 +193,49 @@ echo -n ‘admin’ > ./username.txt
 echo -n ‘abcd1234’ ./password.txt
 kubectl create secret generic mysecret --from-file=./username.txt --from-file=./password.txt
 ```
+
+<p align="center">
+  <img src="assets/configmap-secrets.png" alt="Docker Architecture" width="800px" />
+</p>
+
+</details>
+
+<details>
+<summary markdown="span">How to control the resource usage of a POD?</summary>
+
+With requests and limits resource usage of a POD can be control. 
+
+request: the amount of resources being requested for a container. If a container exceeds its request for resources, it may be throttled back down to it’s request.
+
+limit: an upper cap on the resources a container is able to use. If it tries to exceed this limit it may be terminated if Kubernetes decides that another container needs the resources. If you’re sensitive to pod restarts, it makes sense to have the sum of all container resource limits equal or less than the total resource capacity for your cluster.
+
+</details>
+
+<details>
+<summary markdown="span">Recommended way of managing the access to multiple clusters?</summary>
+
+kubectl looks for the config file, multiple clusters access information can be specified in this config file. `kubectl config` commands can be used to manage the access to these clusters.
+
+</details>
+
+
+<details>
+<summary markdown="span">What is PDB (Pod Disruption Budget)?</summary>
+
+A PDB specifies the number of replicas that an application can tolerate having, relative to how many it is intended to have. For example, a Deployment which has a .spec.replicas: 5 is supposed to have 5 pods at any given time. If its PDB allows for there to be 4 at a time, then the Eviction API will allow voluntary disruption of one, but not two pods, at a time. This is applicable for voluntary disruptions.
+
+</details>
+
+<details>
+<summary markdown="span">How to troubleshoot if the POD is not getting scheduled?</summary>
+
+There are many factors which can led to unstartable POD. Most common one is running out of resources, use the commands like `kubectl desribe <POD> -n <Namespace>` to see the reason why POD is not started. Also, keep an eye on `kubectl get events` to see all events coming from the cluster.
+
+</details>
+
+<details>
+<summary markdown="span">What are the taints and toleration?</summary>
+
+Taints allow a node to repel a set of pods. You can set taints on the node and only the POD which have tolerations matching the taints condition will be able to run on those nodes. This is useful in the case when you allocated node for one user and don't want to run the PODs from other users on that node. 
 
 </details>
