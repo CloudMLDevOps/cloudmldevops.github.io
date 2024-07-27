@@ -217,12 +217,14 @@ data:
 ```
 
 - Creating the Secret:
+
 ```bash
 $ kubectl create –f Secret.yaml
 secrets/tomcat-pass
 
 $ kubectl apply -k .
 ```
+
 </details>
 
 <details>
