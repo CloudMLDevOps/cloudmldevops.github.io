@@ -162,15 +162,15 @@ kube-scheduler, etcd. Whereas the worker node has kubelet and kube-proxy running
 Mainly K8 cluster consists of two type of nodes: master and executor
 
 - master services:
-  - kube-apiserver: Master API service which acts like a door to K8 cluster. 
-  - kube-scheduler: Schedule PODs according to available resources on executor nodes. 
-  - kube-controller-manager: controller is a control loop that watches the shared state of the cluster through the 
+  - <b>kube-apiserver:</b> Master API service which acts like a door to K8 cluster. 
+  - <b>kube-scheduler:</b> Schedule PODs according to available resources on executor nodes. 
+  - <b>kube-controller-manager:</b> controller is a control loop that watches the shared state of the cluster through the 
     apiserver and makes changes attempting to move the current state towards the desired state
 
 - executor node: (These also runs on master node)
-  - kube-proxy: The Kubernetes network proxy runs on each node. This reflects services as defined in the Kubernetes API on 
+  - <b>kube-proxy:</b> The Kubernetes network proxy runs on each node. This reflects services as defined in the Kubernetes API on 
     each node and can do simple TCP, UDP, and SCTP stream forwarding or round robin TCP, UDP, and SCTP forwarding across a set of backends.
-  - kubelet: kubelet takes a set of PodSpecs that are provided through various mechanisms (primarily through the 
+  - <b>kubelet:</b> kubelet takes a set of PodSpecs that are provided through various mechanisms (primarily through the 
     apiserver) and ensures that the containers described in those PodSpecs are running and healthy
 
 </details>
