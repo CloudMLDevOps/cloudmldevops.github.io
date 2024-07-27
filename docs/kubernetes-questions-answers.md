@@ -201,13 +201,38 @@ kubectl create secret generic mysecret --from-file=./username.txt --from-file=./
 </details>
 
 <details>
+<summary markdown="span"><b>How to use secrets in Kubernetes?</b></summary>
+
+Secrets can be defined as Kubernetes objects used to store sensitive data such as user name and passwords with encryption.
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+name: tomcat-pass
+type: Opaque
+data:
+   password: <User Password>
+   username: <User Name>
+```
+
+- Creating the Secret:
+```bash
+$ kubectl create –f Secret.yaml
+secrets/tomcat-pass
+
+$ kubectl apply -k .
+```
+</details>
+
+<details>
 <summary markdown="span"><b>How to control the resource usage of a POD?</b></summary>
 
 With requests and limits resource usage of a POD can be control. 
 
-request: the amount of resources being requested for a container. If a container exceeds its request for resources, it may be throttled back down to it’s request.
+<b>request:</b> the amount of resources being requested for a container. If a container exceeds its request for resources, it may be throttled back down to it’s request.
 
-limit: an upper cap on the resources a container is able to use. If it tries to exceed this limit it may be terminated if Kubernetes decides that another container needs the resources. If you’re sensitive to pod restarts, it makes sense to have the sum of all container resource limits equal or less than the total resource capacity for your cluster.
+<b>limit:</b> an upper cap on the resources a container is able to use. If it tries to exceed this limit it may be terminated if Kubernetes decides that another container needs the resources. If you’re sensitive to pod restarts, it makes sense to have the sum of all container resource limits equal or less than the total resource capacity for your cluster.
 
 </details>
 
