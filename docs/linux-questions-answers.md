@@ -1,5 +1,7 @@
 # Linux Questions and Answers
 
+{::options parse_block_html="true" /}
+
 <details><summary markdown="span"><b>Give some examples of Linux distribution. What is your favorite distro and why?</b></summary>
 
 - Red Hat Enterprise Linux
@@ -288,7 +290,7 @@ Useful resources:
 <details>
 <summary markdown="span"><b>What is load average?</b></summary><br>
 
-Linux **load averages** are "system load averages" that show the running thread (task) demand on the system as an average number of running plus waiting threads. This measures demand, which can be greater than what the system is currently processing. Most tools show three averages, for 1, 5, and 15 minutes.
+Linux **load averages** are **system load averages** that show the running thread (task) demand on the system as an average number of running plus waiting threads. This measures demand, which can be greater than what the system is currently processing. Most tools show three averages, for 1, 5, and 15 minutes.
 
 These 3 numbers are not the numbers for the different CPUs. These numbers are mean values of the load number for a given period of time (of the last 1, 5 and 15 minutes).
 
