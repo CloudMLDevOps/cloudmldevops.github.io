@@ -733,3 +733,98 @@ Useful resources:
 - [5 Reasons to Rackmount Your PC](https://www.racksolutions.com/news/custom-projects/5-reasons-to-rackmount-pc/)
 
 </details>
+
+<details>
+<summary markdown="span"><b>How to change permissions of the file in linux?</b></summary><br>
+
+The `chmod` command is used to change permissions of files and directories. It supports two modes of operation: symbolic mode and octal mode.
+
+1. Symbolic Mode:
+   - Syntax: `chmod [options] [permissions] file(s)`
+
+   - Examples:
+     - Grant read and write permissions to the owner: `chmod u+rw file.txt`
+     - Revoke execute permission from the group: `chmod g-x script.sh`
+     - Add read and execute permissions to others: `chmod o+rx program`
+     - Combined permissions: `chmod u=rw,go=r file.txt`
+
+2. Octal Mode:
+   - Syntax: `chmod [options] [mode] file(s)`
+
+   - Examples:
+     - Set read, write, and execute permissions for owner, group, and others: `chmod 755 script.sh`
+     - Restrict permissions to the owner only: `chmod 700 private.txt`
+     - Grant full permissions to everyone: `chmod 777 public_dir`
+
+</details>
+
+<details>
+<summary markdown="span"><b>How to change owner of the file in linux?</b></summary><br>
+
+The `chown` command is used to change the ownership of files and directories.
+
+- Syntax: `chown [options] owner:group file(s)`
+
+- Examples:
+  - Change the owner and group of a file: `chown john:users file.txt`
+  - Recursively change ownership for a directory and its contents: `chown -R alice:staff project_dir`
+
+</details>
+
+<details>
+<summary markdown="span"><b>How to change group ownership of the file in linux?</b></summary><br>
+
+The `chgrp` command is used to change the group ownership of files and directories.
+
+- Syntax: `chgrp [options] group file(s)`
+
+- Examples:
+  - Change the group of a file: `chgrp developers script.sh`
+  - Recursively change group ownership for a directory and its contents: `chgrp -R team project_dir`
+
+</details>
+
+<details>
+<summary markdown="span"><b>What are the different Linux Directory Structure?</b></summary><br>
+
+The folder structure in Ubuntu Linux follows the Filesystem Hierarchy Standard (FHS), which is a standard for organizing the files and directories on a Unix-like operating system. Here is an overview of the main directories you will typically find in Ubuntu:
+
+- **/bin**: Contains essential command-line executable files (binaries) that are available to all users.
+
+- **/boot**: Contains files related to the boot process, including the Linux kernel, initial ramdisk (initrd), and bootloader configuration.
+
+- **/dev**: Contains device files that represent and allow access to various hardware devices on the system.
+
+- **/etc**: Contains system-wide configuration files for various applications and services.
+
+- **/home**: The home directories for individual users. Each user typically has a subdirectory here to store their personal files and settings.
+
+- **/lib** and **/lib64**: These directories contain shared libraries needed by the system and applications. The "lib64" directory is present on 64-bit systems.
+
+- **/media**: Mount point for removable media devices such as USB drives or optical discs.
+
+- **/mnt**: A general-purpose mount point for temporarily mounting filesystems.
+
+- **/opt**: Contains optional software packages installed on the system. Applications installed here are often self-contained in their own directories.
+
+- **/proc**: A virtual filesystem that provides information about processes and system status. It is used by many system utilities to obtain runtime information.
+
+- **/root**: The home directory for the root user, the administrative superuser.
+
+- **/run**: A temporary filesystem that contains runtime data for various system services. It is cleared on each reboot.
+
+- **/sbin**: Contains system binaries (executable files) that are primarily used by the root user for system administration tasks.
+
+- **/srv**: Contains data for services provided by the system.
+
+- **/sys**: A virtual filesystem that exposes kernel-related information and configuration.
+
+- **/tmp**: A directory for temporary files created by applications and users. Its contents are typically cleared on each reboot.
+
+- **/usr**: Contains user-related programs, libraries, documentation, and shared resources. It has subdirectories such as /usr/bin for user binaries, /usr/lib for libraries, and /usr/share for shared data.
+
+- **/var**: Contains variable data that changes during the system's operation, such as logs, databases, and spool files.
+
+This is a high-level overview of the Ubuntu Linux folder structure. Each directory serves a specific purpose in organizing the system's files and resources.
+
+</details>
