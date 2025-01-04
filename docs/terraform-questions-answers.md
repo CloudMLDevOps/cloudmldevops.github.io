@@ -76,7 +76,7 @@ To be clear, CM tools can be used to provision resources so in the end goal of h
 <details>
 <summary markdown="span"><b>Explain the following block of Terraform code</b></summary>
 
-```
+```json
 resource "aws_instance" "some-instance" {
   ami           = "ami-201720221991yay"
   instance_type = "t2.micro
@@ -87,13 +87,12 @@ It's a resource of type "aws_instance" used to provision an instance. The name o
 
 The instance itself will be provisioned with type "t2.micro" and using an image of the AMI "ami-201720221991yay".
 
-
 </details>
 
 <details>
 <summary markdown="span"><b>What do you do next after writing the following in main.tf file?</b></summary>
 
-```
+```json
 resource "aws_instance" "some-instance" {
   ami           = "ami-201720221991yay"
   instance_type = "t2.micro
@@ -102,14 +101,12 @@ resource "aws_instance" "some-instance" {
 
 Run `terraform init`. This will scan the code in the directory to figure out which providers are used (in this case AWS provider) and will download them.
 
-
 </details>
 
 <details>
 <summary markdown="span"><b>You've executed <code>terraform init</code> and now you would like to move forward to creating the resources but you have concerns and would like to make be 100% sure on what you are going to execute. What should you be doing?</b></summary>
 
 Execute `terraform plan`. That will provide a detailed information on what Terraform will do once you apply the changes.
-
 
 </details>
 
@@ -118,21 +115,19 @@ Execute `terraform plan`. That will provide a detailed information on what Terra
 
 Run `terraform apply`. That will apply the changes described in your .tf files.
 
-
 </details>
 
 <details>
 <summary markdown="span"><b>Explain the meaning of the following strings that seen at the beginning of each line When you run <code>terraform apply</code>
+- '+'
+- '-'
+- '-/+'
 
-* '+'
-* '-'
-* '-/+'
 </b></summary>
 
 * '+' - The resource or attribute is going to be added
 * '-' - the resource or attribute is going to be removed
 * '-/+' - the resource or attribute is going to be replaced
-
 
 </details>
 
@@ -148,25 +143,38 @@ A user should be careful with this command because there is no way to revert it.
 ### <a name="Dependencies">Dependencies</a>
 
 <details>
+
 <summary markdown="span"><b>Sometimes you need to reference some resources in the same or separate .tf file. Why and how it's done?</b></summary>
 
-Why: because resources are sometimes connected or need to be connected. For example, you create an AWS instance with "aws_instance" resource but, at the same time you would like also to allow some traffic to it (because by default traffic is not allowed). For that you'll create a "aws_security_group" resource and then, in your aws_instance resource, you'll reference it.
+Why: because resources are sometimes connected or need to be connected. For example, you create a AWS VPC with **aws_vpc** resource but, at the same time you want to create and attach IGW to it. For that you'll create a **aws_internet_gateway** resource and then and in this resource you will refer **aws_vpc** resource.
 
 How:
 
-Using the syntax <PROVIDER TYPE>.<NAME>.<ATTRIBUTE>
+Using the syntax "<PROVIDER TYPE>.<NAME>.<ATTRIBUTE>"
 
 In your AWS instance it would like that:
 
-```
-resource "aws_instance" "some-instance" {
+```json
 
-  ami           = "some-ami"
-  instance_type = "t2.micro"
-  vpc_security_group_ids = [aws_security_group.instance.id]
+resource "aws_vpc" "terraform_test_vpc" {
+  cidr_block           = var.vpc_cidr
+  enable_dns_hostnames = true
+  enable_dns_support   = true
 
+  tags = {
+    Name = var.vpc_tag_name
+  }
+}
+
+resource "aws_internet_gateway" "terraform_test_internet_gateway" {
+  vpc_id = aws_vpc.terraform_test_vpc.id
+
+  tags = {
+    Name = "terraform_test_internet_gateway"
+  }
 }
 ```
+
 </details>
 
 <details>
@@ -202,7 +210,7 @@ In the [Terraform Registry](https://registry.terraform.io/browse/providers)
 <details>
 <summary markdown="span"><b>What are the names of the providers in this case?</b></summary>
 
-```
+```json
 terraform {
     required_providers {
       aws = {
@@ -224,7 +232,7 @@ azurerm and aws
 
 You write a provider block like the following one and run `terraform init`
 
-```
+```json
 provider "aws" {
   region = "us-west-1"
 }
@@ -235,7 +243,7 @@ provider "aws" {
 <details>
 <summary markdown="span"><b>True or False? Applying the following Terraform configuration will fail since no source or version specific for 'aws' provider</b></summary>
 
-```
+```json
 terraform {
     required_providers {
       aws = {}
@@ -251,7 +259,7 @@ False. It will look for "aws" provider in the public Terraform registry and will
 
 AWS is one of the most popular providers in Terraform. Here is an example of how to configure it to use one specific region and specifying a specific version of the provider
 
-```
+```json
 terraform {
   required_providers {
     aws = {
@@ -266,6 +274,7 @@ provider "aws" {
   region = "us-west-2"
 }
 ```
+
 </details>
 
 <details>
@@ -289,7 +298,7 @@ The Terraform Registry provides a centralized location for official and communit
 <details>
 <summary markdown="span"><b>Describe in high level what happens behind the scenes when you run terraform init on on the following Terraform configuration</b></summary>
 
-```
+```json
 terraform {
   required_providers {
     aws = {
@@ -299,7 +308,6 @@ terraform {
   }
 }
 ```
-
 
 1. Terraform checks if there is an aws provider in this address: `registry.terraform.io/hashicorp/aws`
 2. Installs latest version of aws provider (assuming the URL exists and valid)
@@ -313,7 +321,6 @@ False. You can specify any provider from any URL, not only those from hashicorp.
 
 ### <a name="Variables">Variables</a>
 
-
 #### Input Variables
 
 <details>
@@ -325,7 +332,7 @@ Variables allow you define piece of data in one location instead of repeating th
 <details>
 <summary markdown="span"><b>What type of input variables are supported in Terraform?</b></summary>
 
-```
+```json
 string
 number
 bool
@@ -335,6 +342,7 @@ map(<TYPE>)
 object({<ATTR_NAME> = <TYPE>, ... })
 tuple([<TYPE>, ...])
 ```
+
 </details>
 
 <details>
@@ -382,9 +390,9 @@ According to variable precedence, which source will be used first?
 
 The order is:
 
-  - Environment variable
-  - The file `terraform.tfvars`
-  - Using `-var` or `-var-file`
+- Environment variable
+- The file `terraform.tfvars`
+- Using `-var` or `-var-file`
 
 </details>
 
@@ -443,7 +451,7 @@ You have multiple hardcoded values that repeat themselves in different sections,
 <details>
 <summary markdown="span"><b>Demonstrate input variable definition with type, description and default parameters</b></summary>
 
-```
+```json
 variable "app_id" {
   type = string
   description = "The id of application"
@@ -458,7 +466,7 @@ Unrelated note: variables are usually defined in their own file (vars.tf for exa
 <details>
 <summary markdown="span"><b>How to define an input variable which is an object with attributes "model" (string), "color" (string), year (number)?</b></summary>
 
-```
+```json
 variable "car_model" {
   description = "Car model object"
   type        = object({
@@ -480,7 +488,7 @@ Variable are referenced with `var.VARIABLE_NAME` syntax. Let's have a look at an
 
 vars.tf:
 
-```
+```json
 variable "memory" {
   type = string
   default "8192"
@@ -494,7 +502,7 @@ variable "cpu" {
 
 main.tf:
 
-```
+```json
 resource "libvirt_domain" "vm1" {
    name = "vm1"
    memory = var.memory
@@ -511,7 +519,7 @@ Using the syntax: `"${var.VAR_NAME}"`. It's called "interpolation".
 
 Very common to see it used in user_data attribute related to instances.
 
-```
+```json
 user_data = <<-EOF
             This is some fabulos string
             It demonstrates how to use interpolation
@@ -538,13 +546,14 @@ Very useful for scripts :)
 <details>
 <summary markdown="span"><b>Demonstrate how to define locals</b></summary>
 
-```
+```json
 locals {
   x = 2
   y = "o"
   z = 2.2
 }
 ```
+
 </details>
 
 <details>
@@ -552,7 +561,7 @@ locals {
 
 if we defined something like this
 
-```
+```json
 locals {
   x = 2
 }
@@ -566,16 +575,16 @@ then to use it, you have to use something like this: `local.x`
 <details>
 <summary markdown="span"><b>Explain data sources in Terraform</b></summary>
 
-* Data sources used to get data from providers or in general from external resources to Terraform (e.g. public clouds like AWS, GCP, Azure).
-* Data sources used for reading. They are not modifying or creating anything
-* Many providers expose multiple data sources
+- Data sources used to get data from providers or in general from external resources to Terraform (e.g. public clouds like AWS, GCP, Azure).
+- Data sources used for reading. They are not modifying or creating anything
+- Many providers expose multiple data sources
 
 </details>
 
 <details>
 <summary markdown="span"><b>Demonstrate how to use data sources</b></summary>
 
-```
+```json
 data "aws_vpc" "default {
   default = true
 }
@@ -590,7 +599,7 @@ The general syntax is `data.<PROVIDER_AND_TYPE>.<NAME>.<ATTRBIUTE>`
 
 So if you defined the following data source
 
-```
+```json
 data "aws_vpc" "default {
   default = true
 }
@@ -606,7 +615,7 @@ Yes, you can define a data source while using another data source as a filter fo
 
 Let's say we want to get AWS subnets but only from our default VPC:
 
-```
+```json
 data "aws_subnets" "default" {
   filter {
     name   = "vpc-id"
@@ -633,7 +642,7 @@ Yes, it's possible. There are different lifecycles one can choose from. For exam
 
 How to use it:
 
-```
+```json
 lifecycle {
   create_before_destroy = true
 }
@@ -659,9 +668,9 @@ Provisioners can be described as plugin to use with Terraform, usually focusing 
 
 Few example of provisioners:
 
-* Run configuration management on a provisioned instance using technology like Ansible, Chef or Puppet.
-* Copying files
-* Executing remote scripts
+- Run configuration management on a provisioned instance using technology like Ansible, Chef or Puppet.
+- Copying files
+- Executing remote scripts
 
 </details>
 
@@ -694,9 +703,9 @@ It's a resource which was successfully created but failed during provisioning. T
 Data sources lookup or compute values that can be used elsewhere in terraform configuration.
 
 There are quite a few cases you might need to use them:
-* you want to reference resources not managed through terraform
-* you want to reference resources managed by a different terraform module
-* you want to cleanly compute a value with typechecking, such as with <code>aws_iam_policy_document</code>
+- you want to reference resources not managed through terraform
+- you want to reference resources managed by a different terraform module
+- you want to cleanly compute a value with typechecking, such as with <code>aws_iam_policy_document</code>
 
 </details>
 
@@ -708,7 +717,6 @@ Output variables are named values that are sourced from the attributes of a modu
 <details>
 <summary markdown="span"><b>Explain <code>remote-exec</code> and <code>local-exec</code></b></summary>
 </details>
-
 
 <details>
 <summary markdown="span"><b>Explain "Remote State". When would you use it and how?</b></summary>
@@ -741,7 +749,8 @@ Output variables are named values that are sourced from the attributes of a modu
 eg. Let's say you want to import an aws instance. Then you'll perform following:
 1. Identify that aws instance in console
 2. Refer to it's configuration and write Terraform code which will look something like:
-```
+
+```json
 resource "aws_instance" "tf_aws_instance" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
@@ -751,9 +760,9 @@ resource "aws_instance" "tf_aws_instance" {
   }
 }
 ```
+
 3. Run terraform command <code>terraform import aws_instance.tf_aws_instance i-12345678</code>
 </details>
-
 
 ### State
 
@@ -784,8 +793,8 @@ There is more than one answer to this question. It's very much depends on whethe
 <details>
 <summary markdown="span"><b>Why does it matter where you store the tfstate file? In your answer make sure to address the following:
 
-* Public vs. Private
-* Git repository vs. Other locations
+- Public vs. Private
+- Git repository vs. Other locations
 </b></summary>
 
 - tfstate contains credentials in plain text. You don't want to put it in publicly shared location
@@ -862,13 +871,14 @@ Let's say we chose use Amazon s3 as a remote Terraform backend where we can stor
 6. Add the point you'll want to run init and apply commands to avoid an issue where you at the same time create the resources for remote backend and also switch to a remote backend
 7. Once resources were created, add Terraform backend code
 
-```
+```json
 terraform {
   backend "s3" {
     bucket ...
   }
 }
 ```
+
 7. Run `teraform init` as it will configure the backend
 
 </details>
@@ -928,7 +938,6 @@ True
 One reason is that all the workspaces are stored in one location (as in one backend) and usually you don't want to use the same access control and authentication for both staging and production for obvious reasons. Also working in workspaces is quite prone to human errors as you might accidently think you are in one workspace, while you are working a completely different one.
 </details>
 
-
 #### State Hands-On
 
 <details>
@@ -980,7 +989,7 @@ One reason is that all the workspaces are stored in one location (as in one back
 <details>
 <summary markdown="span"><b>How to define an input variable which is a list of numbers?</b></summary>
 
-```
+```json
 variable "list_of_nums" {
   type = list(number)
   description = "An example of list of numbers"
@@ -993,7 +1002,7 @@ variable "list_of_nums" {
 <details>
 <summary markdown="span"><b>How to create a number of resources based on the length of a list?</b></summary>
 
-```
+```json
 resource "some_resource" "some_name" {
   count = length(var.some_list)
 }
@@ -1027,7 +1036,7 @@ The most common use case is when you need to create multiple resources with only
 <details>
 <summary markdown="span"><b>Demonstrate how to define a simple Terraform loop</b></summary>
 
-```
+```json
 resource "aws_instance" "server" {
   count = 15
 }
@@ -1040,7 +1049,7 @@ The above configuration will create 15 aws instances.
 <details>
 <summary markdown="span"><b>How to create multiple AWS instances but each with a different name?</b></summary>
 
-```
+```json
 resource "aws_instance" "server" {
   count = 6
 
@@ -1057,7 +1066,7 @@ The above configuration will create 6 instances, each with a different name.
 <details>
 <summary markdown="span"><b>You have the following variable defined in Terraform
 
-```
+```json
 variable "users" {
   type    = list(string)
   default = ["mario", "luigi", "peach"]
@@ -1067,7 +1076,7 @@ variable "users" {
 How to use it to create users on one of the public clouds (or any other platform, infra)?
 </b></summary>
 
-```
+```json
 resource "aws_iam_user" "user" {
   count = length(var.users)
 
@@ -1095,7 +1104,7 @@ resource "aws_iam_user" "user" {
 <details>
 <summary markdown="span"><b>Demonstrate how to use the for_each loop</b></summary>
 
-```
+```json
 resource “google_compute_instance” “instances” {
 
   for_each = var.names_map
@@ -1107,7 +1116,7 @@ resource “google_compute_instance” “instances” {
 <details>
 <summary markdown="span"><b>The following resource tries to use for_each loop on a list of string but it fails, why?
 
-```
+```json
 resource “google_compute_instance” “instances” {
 
   for_each = var.names
@@ -1123,8 +1132,7 @@ for_each can applied only on collections like maps or sets so the list should be
 <details>
 <summary markdown="span"><b>How to use for_each loop for inline blocks?</b></summary>
 
-
-```
+```json
 resouce "some_instance" "instance" {
 
 dynamic "tag" {
@@ -1143,7 +1151,7 @@ dynamic "tag" {
 <details>
 <summary markdown="span"><b>There is a list variable called "users". You would like to define an output variable with a value of all users in uppercase. How to achieve that?</b></summary>
 
-```
+```json
 output "users" {
   value = [for name in var.user_names : upper(name)]
 }
@@ -1154,7 +1162,7 @@ output "users" {
 <details>
 <summary markdown="span"><b>What's the result of the following code?
 
-```
+```json
 resource "random_integer" "num" {
   min = 20
   max = 17
@@ -1174,7 +1182,7 @@ The above code will fail as it's not possible to reference resource outputs with
 <details>
 <summary markdown="span"><b>There is a variable called "values" with the following value: ["mario", "luigi", "peach"]. How to create an output variable with the string value of the items in the list: "mario, luigi, peach," ?</b></summary>
 
-```
+```json
 output "users" {
   value = "%{ for name in var.values }${name}, %{ endfor }"
 }
@@ -1185,7 +1193,7 @@ output "users" {
 <details>
 <summary markdown="span"><b>There is a list variable called "users". You would like to define an output variable with a value of all users in uppercase but only if the name is longer than 3 characters. How to achieve that?</b></summary>
 
-```
+```json
 output "users" {
   value = [for name in var.user_names : upper(name) if length(name) > 3]
 }
@@ -1210,7 +1218,7 @@ output "users" {
 <details>
 <summary markdown="span"><b>You have a map variable, called "users", with the keys "name" and "age". Define an output list variable with the following "my name is {name} and my age is {age}"</b></summary>
 
-```
+```json
 output "name_and_age" {
   value = [for name, age in var.users : "my name is ${name} and my age is ${age}"]
 }
@@ -1221,7 +1229,7 @@ output "name_and_age" {
 <details>
 <summary markdown="span"><b>You have a map variable, called "users", with the keys "name" (string) and "age" (float). Define an output map variable with the key being name in uppercase and value being age in the closest whole number </b></summary>
 
-```
+```json
 output "name_and_age" {
   value = {for name, age in var.users : upper(name) => floor(age)
 }
@@ -1257,7 +1265,7 @@ If `x` is an empty string the result is "yay", otherwise it's the value of `x` v
 
 Yes, for example the "count" meta-argument:
 
-```
+```json
 resource "aws_instance" "server" {
   count = var.amount ? 1 : 0
   ...
@@ -1271,7 +1279,7 @@ resource "aws_instance" "server" {
 
 Yes, for example:
 
-```
+```json
 dynamic "tag" {
   for_each = {
     for key, value in var.tags:
@@ -1388,7 +1396,7 @@ Personally, I prefer to use only separate resources in modules as it makes modul
 
 False. It can be a Git URL, HTTP URL, ... for example:
 
-```
+```json
 module "some_module" {
 
   source = "github.com/foo/modules/bar?ref=v0.1"
@@ -1424,7 +1432,7 @@ A better approach would be to use `path reference` like one of the following:
 
 The general syntax is:
 
-```
+```json
 module "<MODULE_NAME>" {
   source = "<MODULE_SOURCE>"
 
@@ -1438,7 +1446,7 @@ The critical part is the source which you use to tell Terraform where the module
 <details>
 <summary markdown="span"><b>Demonstrate using a module called "amazing_modle" in the path "../modules/amazing-module"</b></summary>
 
-```
+```json
 module "amazing_module" {
   source = "../modules/amazing-module"
 }
@@ -1471,7 +1479,7 @@ script = templatesfile("${path.module}/user-data.sh", {
 
 starting with Terraform 0.13, the `count` meta-argument can be used with modules. So you could use something like this:
 
-```
+```json
 module "instances" {
   source = "/some/module/path"
 
@@ -1507,7 +1515,7 @@ It's does NOT create the definitions/configuration for creating such infrastruct
 <details>
 <summary markdown="span"><b>You have a Git repository with Terraform files but no .gitignore. What would you add to a .gitignore file in Terraform repository?</b></summary>
 
-```
+```json
 .terraform
 *.tfstate
 *.tfstate.backup
@@ -1522,7 +1530,7 @@ You don't want to store state file nor any downloaded providers in .terraform di
 <details>
 <summary markdown="span"><b>What happens if you update user_data in the following case apply the changes?
 
-```
+```json
 resource "aws_instance" "example" {
  ami = "..."
  instance_type = "t2.micro"
@@ -1545,7 +1553,7 @@ To make it effective you'll have to use `user_data_replace_on_change = true`.
 
 Add the following to "aws_launch_configuration" resource
 
-```
+```json
 lifecycle {
   create_before_destroy = true
 }
@@ -1558,7 +1566,7 @@ This will change the order of how Terraform works. First it will create the new 
 <details>
 <summary markdown="span"><b>How to manage multiple regions in AWS provider configuration?</b></summary>
 
-```
+```json
 provider "aws" {
   region = "us-west-1"
   alias = "west_region"
@@ -1580,7 +1588,7 @@ data "aws_region" "east_region" {
 
 To use it:
 
-```
+```json
 resource "aws_instance" "west_region_instance" {
   provider = aws.west_region
   instance_type = "t2.micro"
@@ -1593,7 +1601,7 @@ resource "aws_instance" "west_region_instance" {
 <details>
 <summary markdown="span"><b>Assuming you have multiple regions configured and you would like to use a module in one of them. How to achieve that?</b></summary>
 
-```
+```json
 module "some_module" {
   source = "..."
 
@@ -1612,7 +1620,7 @@ module "some_module" {
 
 One way is to define multiple different provider blocks, each with its own "assume_role"
 
-```
+```json
 provider "aws" {
   region = "us-west-1"
   alias = "some-region"
@@ -1632,7 +1640,7 @@ provider "aws" {
 
 Using `validation` block
 
-```
+```json
 variable "some_var" {
   type = number
 
@@ -1651,7 +1659,7 @@ variable "some_var" {
 <details>
 <summary markdown="span"><b>What's the issue with the following provider configuration?
 
-```
+```json
 provider "aws" {
   region = "us-west-1"
 
@@ -1680,7 +1688,7 @@ That very much depends on the CI/CD system/platform you are using.
 
 - GitHub Actions: Use Open ID Connect (OIDC) to establish connection with your provider. You then can specify in your GitHub Actions workflow the following:
 
-```
+```json
 - uses: aws-actions/configure-aws-credentials@v1
 with:
  role-to-assume: arn:aws:iam::someIamRole
@@ -1691,7 +1699,7 @@ with:
 - Jenkins: If Jenkins runs on the provider, you can use the provider access entities (like roles, policies, ...) to grant the instance, on which Jenkins is running, access control
 - CircleCI: you can use `CircleCI Context` and then specify it in your CircleCI config file
 
-```
+```json
 context:
 - some-context
 ```
