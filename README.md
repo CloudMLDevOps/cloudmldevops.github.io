@@ -7,6 +7,12 @@ This is Github Pages maintained for Cloud and DevOps Practices
 # Docker Cheatsheet
 - Navigate to [Docker Cheatsheet](docs/docker-cheatsheet.md)
 
+# Linux QnA
+- Navigate to [Linux Question Answers](docs/linux-questions-answers.md)
+
+# Git QnA
+- Navigate to [Git Question Answers](docs/git-questions-answers.md)
+
 # AWS QnA
 - Navigate to [AWS Question Answers](docs/aws-questions-answers.md)
 
@@ -15,9 +21,6 @@ This is Github Pages maintained for Cloud and DevOps Practices
 
 # Kubernetes QnA
 - Navigate to [Kubernetes Question Answers](docs/kubernetes-questions-answers.md)
-
-# Linux QnA
-- Navigate to [Linux Question Answers](docs/linux-questions-answers.md)
 
 {::options parse_block_html="true" /}
 
@@ -61,9 +64,3 @@ EOF
 ```
 
 </details>
-
-## <a name="general-knowledge">General Knowledge</a>
-
-
-
-{::options parse_block_html="false" /}
