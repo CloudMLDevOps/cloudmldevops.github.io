@@ -7,6 +7,9 @@ This is Github Pages maintained for Cloud and DevOps Practices
 # Docker Cheatsheet
 - Navigate to [Docker Cheatsheet](docs/docker-cheatsheet.md)
 
+# AWS QnA
+- Navigate to [AWS Question Answers](docs/aws-questions-answers.md)
+
 # Terraform QnA
 - Navigate to [Terraform Question Answers](docs/terraform-questions-answers.md)
 
