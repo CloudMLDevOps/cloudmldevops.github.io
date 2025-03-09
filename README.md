@@ -22,7 +22,15 @@ This is Github Pages maintained for Cloud and DevOps Practices
 # Kubernetes QnA
 - Navigate to [Kubernetes Question Answers](docs/kubernetes-questions-answers.md)
 
+# DevOps QnA
+- Navigate to [DevOps Question Answers](docs/devops-questions-answers.md)
+
+# CloudOps QnA
+- Navigate to [CloudOps Question Answers](docs/cloudops-questions-answers.md)
+
 {::options parse_block_html="true" /}
+
+## <a name="docker-tips">Docker Tips</a>
 
 ## <a name="docker-tips">Docker Tips</a>
 
