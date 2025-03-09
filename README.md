@@ -4,29 +4,38 @@ This is Github Pages maintained for Cloud and DevOps Practices
 # Docker-Basics
 - Navigate to [Docker-Basics](docs/docker-basics.md)
 
-# Docker Cheatsheet
+# Cheatsheets
+
+## Docker Cheatsheet
 - Navigate to [Docker Cheatsheet](docs/docker-cheatsheet.md)
 
-# Linux QnA
+# Automation
+## Python AWS Automation
+- Navigate to [Python AWS Automation](docs/python-aws-automation.md)
+
+# QnA
+## Linux QnA
 - Navigate to [Linux Question Answers](docs/linux-questions-answers.md)
 
-# Git QnA
+## Git QnA
 - Navigate to [Git Question Answers](docs/git-questions-answers.md)
 
-# AWS QnA
+## AWS QnA
 - Navigate to [AWS Question Answers](docs/aws-questions-answers.md)
 
-# Terraform QnA
+## Terraform QnA
 - Navigate to [Terraform Question Answers](docs/terraform-questions-answers.md)
 
-# Kubernetes QnA
+## Kubernetes QnA
 - Navigate to [Kubernetes Question Answers](docs/kubernetes-questions-answers.md)
 
-# DevOps QnA
+## DevOps QnA
 - Navigate to [DevOps Question Answers](docs/devops-questions-answers.md)
 
-# CloudOps QnA
+## CloudOps QnA
 - Navigate to [CloudOps Question Answers](docs/cloudops-questions-answers.md)
+
+
 
 {::options parse_block_html="true" /}
 
