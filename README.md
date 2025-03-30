@@ -39,7 +39,7 @@ This is Github Pages maintained for Cloud and DevOps Practices
 - Navigate to [CloudOps Question Answers](docs/cloudops-questions-answers.md)
 
 ## Behavioural Interviews
-- Navigate to [Behavioural Question Answers](docs/cloudops-questions-answers.md)
+- Navigate to [Behavioural Question Answers](docs/behavioural-questions-answers.md)
 {::options parse_block_html="true" /}
 
 ## <a name="docker-tips">Docker Tips</a>
