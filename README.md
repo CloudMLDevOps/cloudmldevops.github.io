@@ -32,6 +32,9 @@ This is Github Pages maintained for Cloud and DevOps Practices
 ### Kubernetes QnA
 - Navigate to [Kubernetes Question Answers](docs/kubernetes-questions-answers.md)
 
+### Jenkins QnA
+- Navigate to [Jenkins Question Answers](docs/jenkins-questions-answers.md)
+
 ### DevOps QnA
 - Navigate to [DevOps Question Answers](docs/devops-questions-answers.md)
 
