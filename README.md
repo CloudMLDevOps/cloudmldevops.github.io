@@ -12,6 +12,9 @@ This is Github Pages maintained for Cloud and DevOps Practices
 ### Docker Cheatsheet
 - Navigate to [Docker Cheatsheet](docs/docker-cheatsheet.md)
 
+### Kubernetes Cheatsheet
+- Navigate to [Kubernetes Cheatsheet](docs/k8s-cheatsheet.md)
+
 ## Automation
 ### Python AWS Automation
 - Navigate to [Python AWS Automation](docs/python-aws-automation.md)
