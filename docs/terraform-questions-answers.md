@@ -2,7 +2,7 @@
 
 {::options parse_block_html="true" /}
 
-### <a name="Terraform-101">Terraform 101</a>
+## <a name="Terraform-101">Terraform 101</a>
 
 <details>
 <summary markdown="span"><b>What is Terraform?</b></summary>
@@ -1730,5 +1730,3 @@ False. State files include sensitive data as it is. Which means it's very import
 False. It doesn't matter where your secrets store (file, environment variables, centralized secrets store), they will be visible in both state file and plan output.
 
 </details>
-
-{::options parse_block_html="false" /}
