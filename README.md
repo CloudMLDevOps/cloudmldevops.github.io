@@ -1,9 +1,6 @@
 # cloudmldevops.github.io
 This is Github Pages maintained for Cloud and DevOps Practices
 
-## Docker-Basics
-- Navigate to [Docker-Basics](docs/docker-basics.md)
-
 ## Cheatsheets
 
 ### Linux Cheatsheet
@@ -31,6 +28,9 @@ This is Github Pages maintained for Cloud and DevOps Practices
 
 ### Terraform QnA
 - Navigate to [Terraform Question Answers](docs/terraform-questions-answers.md)
+
+## Docker QnA
+- Navigate to [Docker-Basics](docs/docker-questions-answers.md)
 
 ### Kubernetes QnA
 - Navigate to [Kubernetes Question Answers](docs/kubernetes-questions-answers.md)
