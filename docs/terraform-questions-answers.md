@@ -1,7 +1,5 @@
 # Terraform Questions and Answers
 
-{::options parse_block_html="true" /}
-
 ## <a name="Terraform-101">Terraform 101</a>
 
 <details>
