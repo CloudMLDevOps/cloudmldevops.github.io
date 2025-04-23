@@ -82,15 +82,14 @@ It's a resource of type "aws_instance" used to provision an instance. The name o
 The instance itself will be provisioned with type "t2.micro" and using an image of the AMI "ami-201720221991yay".
 
 <details>
-<summary markdown="span"><b>What do you do next after writing the following in main.tf file?</b>
+<summary markdown="span"><b>What do you do next after writing the following in main.tf file?</b></summary>
 
-```json
+<code>
 resource "aws_instance" "some-instance" {
   ami           = "ami-201720221991yay"
   instance_type = "t2.micro
 }
-```
-</summary>
+</code>
 
 Run `terraform init`. This will scan the code in the directory to figure out which providers are used (in this case AWS provider) and will download them.
 
