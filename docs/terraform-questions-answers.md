@@ -68,8 +68,7 @@ To be clear, CM tools can be used to provision resources so in the end goal of h
 
 ### <a name="Terraform-Hands-On-Basics">Terraform Hands-On Basics</a>
 
-<details>
-<summary markdown="span"><b>Explain the following block of Terraform code</b></summary>
+Q) Explain the following block of Terraform code
 
 ```json
 resource "aws_instance" "some-instance" {
@@ -81,8 +80,6 @@ resource "aws_instance" "some-instance" {
 It's a resource of type "aws_instance" used to provision an instance. The name of the resource (NOT INSTANCE) is "some-instance".
 
 The instance itself will be provisioned with type "t2.micro" and using an image of the AMI "ami-201720221991yay".
-
-</details>
 
 <details>
 <summary markdown="span"><b>What do you do next after writing the following in main.tf file?</b></summary>
@@ -173,6 +170,7 @@ resource "aws_internet_gateway" "terraform_test_internet_gateway" {
 </details>
 
 <details>
+
 <summary markdown="span"><b>Does it matter in which order Terraform creates resources?</b></summary>
 
 Yes, when there is a dependency between different Terraform resources, you want the resources to be created in the right order and this is exactly what Terraform does.
@@ -181,6 +179,7 @@ To make it ever more clear, if you have a resource X that references the ID of r
 </details>
 
 <details>
+
 <summary markdown="span"><b>Is there a way to print/see the dependencies between the different resources?</b></summary>
 
 Yes, with `terraform graph`
