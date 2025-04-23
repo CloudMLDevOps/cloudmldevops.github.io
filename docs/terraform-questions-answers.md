@@ -139,7 +139,7 @@ Why: because resources are sometimes connected or need to be connected. For exam
 
 How:
 
-Using the syntax "<PROVIDER TYPE>.<NAME>.<ATTRIBUTE>"
+Using the syntax "PROVIDER TYPE.NAME.ATTRIBUTE"
 
 In your AWS instance it would like that:
 
