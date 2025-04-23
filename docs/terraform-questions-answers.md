@@ -81,19 +81,16 @@ It's a resource of type "aws_instance" used to provision an instance. The name o
 
 The instance itself will be provisioned with type "t2.micro" and using an image of the AMI "ami-201720221991yay".
 
-<details>
-<summary markdown="span"><b>What do you do next after writing the following in main.tf file?</b></summary>
+Q) What do you do next after writing the following in main.tf file?
 
-<code>
+```json
 resource "aws_instance" "some-instance" {
   ami           = "ami-201720221991yay"
   instance_type = "t2.micro
 }
-</code>
+```
 
 Run `terraform init`. This will scan the code in the directory to figure out which providers are used (in this case AWS provider) and will download them.
-
-</details>
 
 <details>
 <summary markdown="span"><b>You've executed <code>terraform init</code> and now you would like to move forward to creating the resources but you have concerns and would like to make be 100% sure on what you are going to execute. What should you be doing?</b></summary>
@@ -147,7 +144,6 @@ Using the syntax "<PROVIDER TYPE>.<NAME>.<ATTRIBUTE>"
 In your AWS instance it would like that:
 
 ```json
-
 resource "aws_vpc" "terraform_test_vpc" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
