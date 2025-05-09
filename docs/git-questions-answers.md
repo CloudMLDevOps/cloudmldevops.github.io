@@ -52,8 +52,6 @@
 
 [Do you know how to easily undo a git rebase? ](#do-you-know-how-to-easily-undo-a-git-rebase-)
 
-
-
 ### What is the command to write a commit message in Git?
 
 Use:

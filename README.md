@@ -41,9 +41,6 @@ This is Github Pages maintained for Cloud and DevOps Practices
 ### DevOps QnA
 - Navigate to [DevOps Question Answers](docs/devops-questions-answers.md)
 
-### CloudOps QnA
-- Navigate to [CloudOps Question Answers](docs/cloudops-questions-answers.md)
-
 ## Behavioural Interviews
 - Navigate to [Behavioural Question Answers](docs/behavioural-questions-answers.md)
 {::options parse_block_html="true" /}
